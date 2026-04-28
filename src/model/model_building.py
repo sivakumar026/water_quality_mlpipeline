@@ -22,4 +22,9 @@ y_train = train_data.iloc[:, -1].values
 clf = RandomForestClassifier(n_estimators=n_estimators)
 clf.fit(X_train, y_train)
 
-pickle.dump(clf, open("model.pkl", "wb"))
+os.makedirs("models", exist_ok=True)
+
+with open("models/model.pkl", "wb") as f:
+    pickle.dump(clf, f)
+
+print("Model saved successfully")
