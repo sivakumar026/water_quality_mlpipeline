@@ -9,7 +9,7 @@ test_data=pd.read_csv("data/raw/test.csv")
 def fill_missing_with_median(df):
     for column in df.columns:
         if df[column].isnull().any():
-            mean_value = df[column].mean()
+            mean_value = df[column].median()
             df[column].fillna(mean_value, inplace=True)
     return df
 
